@@ -3,7 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.271
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAPI", "RestAPI\RestAPI.csproj", "{7C6709FA-C4FF-4651-9F42-F039F78CD272}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestAPI", "RestAPI\RestAPI.csproj", "{7C6709FA-C4FF-4651-9F42-F039F78CD272}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "ClassLibrary1\DAL.csproj", "{1F7EB10B-909A-41FB-A714-4AC13687E625}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL", "BLL\BLL.csproj", "{AADAFE27-3064-4ABF-ACE3-0F5528E2A8D7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SHARED", "SHARED\SHARED.csproj", "{285F24CF-C85A-4452-905B-FF55CC4ADBE3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +21,18 @@ Global
 		{7C6709FA-C4FF-4651-9F42-F039F78CD272}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7C6709FA-C4FF-4651-9F42-F039F78CD272}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7C6709FA-C4FF-4651-9F42-F039F78CD272}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F7EB10B-909A-41FB-A714-4AC13687E625}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F7EB10B-909A-41FB-A714-4AC13687E625}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F7EB10B-909A-41FB-A714-4AC13687E625}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F7EB10B-909A-41FB-A714-4AC13687E625}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AADAFE27-3064-4ABF-ACE3-0F5528E2A8D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AADAFE27-3064-4ABF-ACE3-0F5528E2A8D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AADAFE27-3064-4ABF-ACE3-0F5528E2A8D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AADAFE27-3064-4ABF-ACE3-0F5528E2A8D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{285F24CF-C85A-4452-905B-FF55CC4ADBE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{285F24CF-C85A-4452-905B-FF55CC4ADBE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{285F24CF-C85A-4452-905B-FF55CC4ADBE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{285F24CF-C85A-4452-905B-FF55CC4ADBE3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
