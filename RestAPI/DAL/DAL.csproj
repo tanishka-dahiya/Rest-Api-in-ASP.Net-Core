@@ -5,11 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Interfaces\" />
-    <Folder Include="Repositries\" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="8.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.2.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer.Design" Version="1.1.6" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.2.2">
@@ -17,6 +13,10 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SHARED\SHARED.csproj" />
   </ItemGroup>
 
   <ItemGroup>
