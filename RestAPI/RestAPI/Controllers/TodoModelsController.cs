@@ -34,80 +34,29 @@ namespace RestAPI.Controllers
             return Result;
         }
 
-        //// GET: api/TodoModels/5
-        //[HttpGet("{id}")]
-        //public async Task<ActionResult<TodoModel>> GetTodoModel(int id)
-        //{
-        //    var todoModel = await _context.TodoModels.FindAsync(id);
 
-        //    if (todoModel == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    return todoModel;
-        //}
 
         //// PUT: api/TodoModels/5
-        //[HttpPut("{id}")]
-        //public async Task<IActionResult> PutTodoModel(int id, TodoModel todoModel)
-        //{
-        //    if (id != todoModel.TaskId)
-        //    {
-        //        return BadRequest();
-        //    }
+        [HttpPut("{id}")]
+        public  SHARED.ViewModals.Task PutTodoModel(int id, Task todoModel)
+        {
+            SHARED.ViewModals.Task postdata = ModelToDto.ModelToDTO(todoModel);
+            SHARED.ViewModals.Task TasksItem = taskBLL.EditTasks(id,postdata);
 
-        //    _context.Entry(todoModel).State = EntityState.Modified;
-
-        //    try
-        //    {
-        //        await _context.SaveChangesAsync();
-        //    }
-        //    catch (DbUpdateConcurrencyException)
-        //    {
-        //        if (!TodoModelExists(id))
-        //        {
-        //            return NotFound();
-        //        }
-        //        else
-        //        {
-        //            throw;
-        //        }
-        //    }
-
-        //    return NoContent();
-        //}
+            return TasksItem;
+        }
 
         //// POST: api/TodoModels
         [HttpPost]
         public SHARED.ViewModals.Task PostTodoModels(Task taskItem)
         {
-            SHARED.ViewModals.Task postdata = ModelToDto.ModelToDTO(taskItem);
-            SHARED.ViewModals.Task TasksItem = taskBLL.PostTasks(postdata);
+            SHARED.ViewModals.Task postdata1 = ModelToDto.ModelToDTO(taskItem);
+            SHARED.ViewModals.Task TasksItemResult = taskBLL.PostTasks(postdata1);
             
-            return TasksItem;
+            return TasksItemResult;
 
         }
 
-        //// DELETE: api/TodoModels/5
-        //[HttpDelete("{id}")]
-        //public async Task<ActionResult<TodoModel>> DeleteTodoModel(int id)
-        //{
-        //    var todoModel = await _context.TodoModels.FindAsync(id);
-        //    if (todoModel == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    _context.TodoModels.Remove(todoModel);
-        //    await _context.SaveChangesAsync();
-
-        //    return todoModel;
-        //}
-
-        //private bool TodoModelExists(int id)
-        //{
-        //    return _context.TodoModels.Any(e => e.TaskId == id);
-        //}
+       
     }
 }

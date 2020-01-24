@@ -8,5 +8,6 @@ namespace DAL.Interfaces
     {
         IList<SHARED.ViewModals.Task> getTasks();
         SHARED.ViewModals.Task PostTasks(SHARED.ViewModals.Task item);
+        SHARED.ViewModals.Task EditTasks(int id,SHARED.ViewModals.Task item);
     }
 }

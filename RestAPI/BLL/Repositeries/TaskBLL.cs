@@ -38,5 +38,11 @@ namespace BLL
             SHARED.ViewModals.Task PostedTask = taskDAL.PostTasks( item);
             return PostedTask;
         }
+
+        public SHARED.ViewModals.Task EditTasks(int id,SHARED.ViewModals.Task item)
+        {
+            SHARED.ViewModals.Task PostedTask = taskDAL.EditTasks(id,item);
+            return PostedTask;
+        }
     }
 }
