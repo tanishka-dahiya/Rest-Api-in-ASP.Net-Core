@@ -26,34 +26,34 @@ namespace RestAPI.Controllers
 
         // GET: api/TodoModels
         [HttpGet]
-        public IList<Task> GetTodoModels()
+        public IActionResult GetTodoModels()
         {
             var TasksList = taskBLL.getTasks();
             IList<Task> Result = ModelToDto.DTOToModel(TasksList);
 
-            return Result;
+            return Ok( Result);
         }
 
 
 
         //// PUT: api/TodoModels/5
         [HttpPut("{id}")]
-        public  SHARED.ViewModals.Task PutTodoModel(int id, Task todoModel)
+        public IActionResult PutTodoModel(int id, Task todoModel)
         {
             SHARED.ViewModals.Task postdata = ModelToDto.ModelToDTO(todoModel);
             SHARED.ViewModals.Task TasksItem = taskBLL.EditTasks(id,postdata);
 
-            return TasksItem;
+            return Created("",TasksItem);
         }
 
         //// POST: api/TodoModels
         [HttpPost]
-        public SHARED.ViewModals.Task PostTodoModels(Task taskItem)
+        public IActionResult PostTodoModels(Task taskItem)
         {
             SHARED.ViewModals.Task postdata1 = ModelToDto.ModelToDTO(taskItem);
             SHARED.ViewModals.Task TasksItemResult = taskBLL.PostTasks(postdata1);
-            
-            return TasksItemResult;
+
+            return Created("" ,TasksItemResult);
 
         }
 
