@@ -4767,6 +4767,7 @@
         "dependencies": {
           "AutoMapper": "8.0.0",
           "DAL": "1.0.0",
+          "Microsoft.AspNetCore.Mvc.Formatters.Xml": "2.2.0",
           "Microsoft.EntityFrameworkCore.SqlServer.Design": "1.1.6",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "2.2.0",
           "SHARED": "1.0.0"
@@ -4783,6 +4784,7 @@
         "framework": ".NETCoreApp,Version=v2.2",
         "dependencies": {
           "AutoMapper": "8.0.0",
+          "Microsoft.AspNetCore.Mvc.Formatters.Xml": "2.2.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "2.2.2",
           "Microsoft.EntityFrameworkCore.SqlServer.Design": "1.1.6",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "2.2.0",
@@ -4800,6 +4802,7 @@
         "framework": ".NETCoreApp,Version=v2.2",
         "dependencies": {
           "AutoMapper": "8.0.0",
+          "Microsoft.AspNetCore.Mvc.Formatters.Xml": "2.2.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "2.2.2",
           "Microsoft.EntityFrameworkCore.SqlServer.Design": "1.1.6",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "2.2.0"
@@ -13093,6 +13096,7 @@
       "BLL >= 1.0.0",
       "DAL >= 1.0.0",
       "Microsoft.AspNetCore.App >= 2.2.0",
+      "Microsoft.AspNetCore.Mvc.Formatters.Xml >= 2.2.0",
       "Microsoft.AspNetCore.Razor.Design >= 2.2.0",
       "Microsoft.EntityFrameworkCore.SqlServer.Design >= 1.1.6",
       "Microsoft.EntityFrameworkCore.Tools >= 2.2.2",
@@ -13161,6 +13165,10 @@
             "target": "Package",
             "version": "[2.2.0, )",
             "autoReferenced": true
+          },
+          "Microsoft.AspNetCore.Mvc.Formatters.Xml": {
+            "target": "Package",
+            "version": "[2.2.0, )"
           },
           "Microsoft.AspNetCore.Razor.Design": {
             "suppressParent": "All",
