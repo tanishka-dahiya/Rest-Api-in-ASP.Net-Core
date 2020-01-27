@@ -60,5 +60,30 @@ namespace DAL.Repositries
 
 
         }
+
+
+        //Sorting In Tasks
+        public IList<SHARED.ViewModals.Task> getSortedTasks(string sort)
+        {
+            IList<TodoModel> Tasks;
+            switch (sort)
+            {
+                case "desc":
+                    Tasks = _context.TodoModels.OrderByDescending(q=>q.Title).ToList();
+                    break;
+                case "asc":
+                    Tasks = _context.TodoModels.OrderBy(q => q.Title).ToList();
+                    break;
+                default:
+                    Tasks = _context.TodoModels.ToList();
+                    break;
+
+            }
+
+           
+            return EntityDTOConversion.EntityToDTO(Tasks);
+
+        }
+        
     }
 }

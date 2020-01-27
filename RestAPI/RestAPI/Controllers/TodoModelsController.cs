@@ -28,11 +28,27 @@ namespace RestAPI.Controllers
         [HttpGet]
         public IActionResult GetTodoModels()
         {
+
             var TasksList = taskBLL.getTasks();
             IList<Task> Result = ModelToDto.DTOToModel(TasksList);
 
             return Ok( Result);
         }
+
+        //Sorting in Ascending And Descending Order
+
+        [HttpGet("{sort}")]
+        public IActionResult Sort(string sort)
+        {
+            
+
+            var SortedList = taskBLL.getSortedTasks(sort);
+            IList<Task> Result = ModelToDto.DTOToModel(SortedList);
+
+            return Ok(Result);
+        }
+
+
 
 
 

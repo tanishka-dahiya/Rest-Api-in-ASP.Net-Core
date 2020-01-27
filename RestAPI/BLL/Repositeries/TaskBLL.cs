@@ -44,5 +44,13 @@ namespace BLL
             SHARED.ViewModals.Task PostedTask = taskDAL.EditTasks(id,item);
             return PostedTask;
         }
+
+
+
+        public IList<SHARED.ViewModals.Task>  getSortedTasks(string sort)
+        {
+            var PostedTask = taskDAL.getSortedTasks(sort);
+            return PostedTask;
+        }
     }
 }
