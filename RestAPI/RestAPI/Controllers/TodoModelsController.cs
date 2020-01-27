@@ -35,7 +35,7 @@ namespace RestAPI.Controllers
             return Ok( Result);
         }
 
-        //Sorting in Ascending And Descending Order
+        //Sorting in Ascending And Descending Order api/TodoModels/{sort}
 
         [HttpGet("{sort}")]
         public IActionResult Sort(string sort)
@@ -47,7 +47,19 @@ namespace RestAPI.Controllers
 
             return Ok(Result);
         }
+        //Get Deleted Tasks
 
+        [HttpGet("[action]/{filter}")]
+        public IActionResult GetFiltered(string filter)
+        {
+
+
+            var FilteredLIstList = taskBLL.getFilteredTasks(filter);
+            IList<Task> Result = ModelToDto.DTOToModel(FilteredLIstList);
+
+            return Ok(Result);
+        }
+        //Get Completed Tasks
 
 
 

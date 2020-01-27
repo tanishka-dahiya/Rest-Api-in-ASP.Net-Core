@@ -84,6 +84,40 @@ namespace DAL.Repositries
             return EntityDTOConversion.EntityToDTO(Tasks);
 
         }
-        
+
+
+        //Filter In Tasks
+        public IList<SHARED.ViewModals.Task> getFilteredTasks(string filter)
+        {
+            IList<TodoModel> Tasks;
+            switch (filter)
+            {
+                case "IsCompleted":
+                    Tasks = _context.TodoModels.Where(s => s.IsCompleted == 1)
+                                      .ToList();
+                    break;
+                case "IsExpired":
+                    Tasks = _context.TodoModels.Where(q => q.IsExpired==1).ToList();
+                    break;
+                case "IsDeleted":
+                    Tasks = _context.TodoModels.Where(q => q.IsDeleted==1).ToList();
+                    break;
+                case "IsOnGoing":
+                    Tasks = _context.TodoModels.Where(q => q.IsExpired==0&& q.IsDeleted == 0&& q.IsCompleted == 0).ToList();
+                    break;
+                default:
+                    Tasks = _context.TodoModels.ToList();
+                    break;
+
+            }
+
+
+            return EntityDTOConversion.EntityToDTO(Tasks);
+
+        }
+
+
+
+
     }
 }

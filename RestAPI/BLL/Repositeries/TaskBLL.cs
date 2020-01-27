@@ -52,5 +52,15 @@ namespace BLL
             var PostedTask = taskDAL.getSortedTasks(sort);
             return PostedTask;
         }
+
+
+        public IList<SHARED.ViewModals.Task> getFilteredTasks(string filter)
+        {
+            var PostedTask = taskDAL.getFilteredTasks(filter);
+            return PostedTask;
+        }
+
+
+        
     }
 }
