@@ -35,6 +35,7 @@ namespace RestAPI
 
             services.AddScoped<ITaskDAL, TaskDAL>();
             services.AddScoped<ITaskBLL, TaskBLL>();
+            //For Data
             services.AddDbContext<TaskManagerContext>(options =>
               options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
