@@ -126,7 +126,15 @@ namespace DAL.Repositries
             var currentPageSize = pageSize ?? 5;
             return Tasks.Skip((currentPageNumber - 1) * currentPageSize).Take(currentPageSize);
         }
-        
+
+        public IEnumerable<SHARED.ViewModals.Task> getSearchResult(string searchString)
+        {
+            
+                IEnumerable<SHARED.ViewModals.Task> Tasks = EntityDTOConversion.EntityToDTO(_context.TodoModels.Where(q=>q.Title.Contains(searchString)).ToList());
+
+            return Tasks;
+        }
+
 
 
 

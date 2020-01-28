@@ -65,6 +65,12 @@ namespace BLL
             return PostedTask;
         }
 
+        public IEnumerable<SHARED.ViewModals.Task> getSearchResult(string searchString)
+        {
+            var PostedTask = taskDAL.getSearchResult(searchString);
+            return PostedTask;
+        }
+
 
 
     }

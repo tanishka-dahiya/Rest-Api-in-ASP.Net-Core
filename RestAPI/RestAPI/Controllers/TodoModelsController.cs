@@ -95,6 +95,21 @@ namespace RestAPI.Controllers
 
             return Ok(Result);
         }
+
+
+
+
+        //Get Search Results from Task Table
+        [HttpGet("[action]")]
+        public IActionResult getSearchResult(string searchString)
+        {
+
+
+            var FilteredLIstList = taskBLL.getSearchResult(searchString);
+            IEnumerable<Task> Result = ModelToDto.DTOToModel(FilteredLIstList);
+
+            return Ok(Result);
+        }
     }
    
 
