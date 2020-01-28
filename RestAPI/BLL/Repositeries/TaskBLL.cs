@@ -59,8 +59,13 @@ namespace BLL
             var PostedTask = taskDAL.getFilteredTasks(filter);
             return PostedTask;
         }
+        public IEnumerable<SHARED.ViewModals.Task> getPagination(int? pageNumber, int? pageSize)
+        {
+            var PostedTask = taskDAL.getPagination(pageNumber, pageSize);
+            return PostedTask;
+        }
 
 
-        
+
     }
 }

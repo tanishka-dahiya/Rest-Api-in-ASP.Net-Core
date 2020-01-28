@@ -119,5 +119,16 @@ namespace DAL.Repositries
 
 
 
+        public IEnumerable<SHARED.ViewModals.Task> getPagination(int? pageNumber, int? pageSize)
+        {
+            IEnumerable<SHARED.ViewModals.Task> Tasks = EntityDTOConversion.EntityToDTO(_context.TodoModels.ToList());
+            var currentPageNumber = pageNumber ?? 1;
+            var currentPageSize = pageSize ?? 5;
+            return Tasks.Skip((currentPageNumber - 1) * currentPageSize).Take(currentPageSize);
+        }
+        
+
+
+
     }
 }

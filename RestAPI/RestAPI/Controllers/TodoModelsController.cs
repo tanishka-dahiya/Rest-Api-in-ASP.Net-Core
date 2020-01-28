@@ -59,7 +59,7 @@ namespace RestAPI.Controllers
 
             return Ok(Result);
         }
-        //Get Completed Tasks
+       
 
 
 
@@ -84,7 +84,22 @@ namespace RestAPI.Controllers
             return Created("" ,TasksItemResult);
 
         }
+        //Get Pagination from Task Table
+        [HttpGet("[action]")]
+        public IActionResult getPagination(int pageNumber,int pageSize)
+        {
 
-       
+
+            var FilteredLIstList = taskBLL.getPagination(pageNumber, pageSize);
+            IEnumerable<Task> Result = ModelToDto.DTOToModel(FilteredLIstList);
+
+            return Ok(Result);
+        }
     }
+   
+
+    
+
+
 }
+

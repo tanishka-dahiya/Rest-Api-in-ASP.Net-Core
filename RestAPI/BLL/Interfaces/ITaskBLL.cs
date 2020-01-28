@@ -12,9 +12,11 @@ namespace BLL.Interfaces
         SHARED.ViewModals.Task EditTasks(int id,SHARED.ViewModals.Task item);
         IList<SHARED.ViewModals.Task> getSortedTasks(string sort);
         IList<SHARED.ViewModals.Task> getFilteredTasks(string Filter);
-      
+        IEnumerable<SHARED.ViewModals.Task> getPagination(int? pageNumber, int? pageSize);
 
-        
+
+
+
 
     }
 }

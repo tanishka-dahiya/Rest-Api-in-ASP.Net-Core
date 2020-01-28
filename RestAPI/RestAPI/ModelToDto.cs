@@ -37,5 +37,18 @@ namespace RestAPI
         }
 
 
+
+        private static MapperConfiguration config10 = new MapperConfiguration(c =>
+        {
+            c.CreateMap<SHARED.ViewModals.Task, Task>();
+        });
+        private static IMapper mapper10 = config8.CreateMapper();
+
+        public static IEnumerable<Task> DTOToModel(IEnumerable<SHARED.ViewModals.Task> eventDTOList)
+        {
+            return mapper10.Map<IEnumerable<Task>>(eventDTOList);
+        }
+
+
     }
 }
