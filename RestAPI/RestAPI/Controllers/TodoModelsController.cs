@@ -26,6 +26,7 @@ namespace RestAPI.Controllers
 
         // GET: api/TodoModels
         [HttpGet]
+       // [ResponseCache(Duration =60,Location =ResponseCacheLocation.Any)]
         public IActionResult GetTodoModels()
         {
 

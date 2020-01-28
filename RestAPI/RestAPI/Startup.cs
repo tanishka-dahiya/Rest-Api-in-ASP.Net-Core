@@ -43,6 +43,10 @@ namespace RestAPI
 
             //for sending data in XML Accept--->application/xml in headers
             services.AddMvc().AddXmlSerializerFormatters();
+
+
+            //for Response Caching
+            services.AddResponseCaching();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -59,6 +63,7 @@ namespace RestAPI
             }
 
             app.UseHttpsRedirection();
+            app.UseResponseCaching();
             app.UseMvc();
             //  SeedData.Initialize(app);
         }

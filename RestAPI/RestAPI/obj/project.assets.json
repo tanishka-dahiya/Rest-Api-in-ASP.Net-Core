@@ -4768,6 +4768,7 @@
           "AutoMapper": "8.0.0",
           "DAL": "1.0.0",
           "Microsoft.AspNetCore.Mvc.Formatters.Xml": "2.2.0",
+          "Microsoft.AspNetCore.ResponseCaching": "2.2.0",
           "Microsoft.EntityFrameworkCore.SqlServer.Design": "1.1.6",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "2.2.0",
           "SHARED": "1.0.0"
@@ -4785,6 +4786,7 @@
         "dependencies": {
           "AutoMapper": "8.0.0",
           "Microsoft.AspNetCore.Mvc.Formatters.Xml": "2.2.0",
+          "Microsoft.AspNetCore.ResponseCaching": "2.2.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "2.2.2",
           "Microsoft.EntityFrameworkCore.SqlServer.Design": "1.1.6",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "2.2.0",
@@ -4803,6 +4805,7 @@
         "dependencies": {
           "AutoMapper": "8.0.0",
           "Microsoft.AspNetCore.Mvc.Formatters.Xml": "2.2.0",
+          "Microsoft.AspNetCore.ResponseCaching": "2.2.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "2.2.2",
           "Microsoft.EntityFrameworkCore.SqlServer.Design": "1.1.6",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "2.2.0"
@@ -13098,6 +13101,7 @@
       "Microsoft.AspNetCore.App >= 2.2.0",
       "Microsoft.AspNetCore.Mvc.Formatters.Xml >= 2.2.0",
       "Microsoft.AspNetCore.Razor.Design >= 2.2.0",
+      "Microsoft.AspNetCore.ResponseCaching >= 2.2.0",
       "Microsoft.EntityFrameworkCore.SqlServer.Design >= 1.1.6",
       "Microsoft.EntityFrameworkCore.Tools >= 2.2.2",
       "Microsoft.NETCore.App >= 2.2.0",
@@ -13172,6 +13176,10 @@
           },
           "Microsoft.AspNetCore.Razor.Design": {
             "suppressParent": "All",
+            "target": "Package",
+            "version": "[2.2.0, )"
+          },
+          "Microsoft.AspNetCore.ResponseCaching": {
             "target": "Package",
             "version": "[2.2.0, )"
           },
