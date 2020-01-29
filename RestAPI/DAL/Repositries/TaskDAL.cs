@@ -19,28 +19,38 @@ namespace DAL.Repositries
            this._context = context;
         }
 
+
+
+        //returns list of all tasks
         public IList<SHARED.ViewModals.Task>  getTasks()
         {
-            IList<TodoModel> Tasks =  _context.TodoModels.ToList();
-            return EntityDTOConversion.EntityToDTO(Tasks);
-
+            IList<TodoModel> tasks =  _context.TodoModels.ToList();
+            return EntityDTOConversion.EntityToDTO(tasks);
         }
+
+
+
+        //to add a task
         public SHARED.ViewModals.Task PostTasks(SHARED.ViewModals.Task item)
         {
-            TodoModel Data = EntityDTOConversion.DTOToEntity(item);
-            _context.TodoModels.Add(Data);
+            TodoModel postedTask = EntityDTOConversion.DTOToEntity(item);
+            _context.TodoModels.Add(postedTask);
              _context.SaveChangesAsync();
             return item;
            
         }
+
+
+
+        //to edit a task
         public SHARED.ViewModals.Task EditTasks(int id,SHARED.ViewModals.Task item)
         {
             if (id != item.TaskId)
             {
                 return null;
             }
-            TodoModel Data = EntityDTOConversion.DTOToEntity(item);
-            _context.Entry(Data).State = EntityState.Modified;
+            TodoModel editedData = EntityDTOConversion.DTOToEntity(item);
+            _context.Entry(editedData).State = EntityState.Modified;
 
             try
             {
@@ -48,77 +58,72 @@ namespace DAL.Repositries
             }
             catch (DbUpdateConcurrencyException)
             {
-              
-                
-                    throw;
+               throw;
                
             }
-
-            return item;
-
-
-
-
+             return item;
         }
 
+   
 
-        //Sorting In Tasks
+
+        //get sorted data list
         public IList<SHARED.ViewModals.Task> getSortedTasks(string sort)
         {
-            IList<TodoModel> Tasks;
+            IList<TodoModel> sortedTaskList;
             switch (sort)
             {
                 case "desc":
-                    Tasks = _context.TodoModels.OrderByDescending(q=>q.Title).ToList();
+                    sortedTaskList = _context.TodoModels.OrderByDescending(q=>q.Title).ToList();
                     break;
                 case "asc":
-                    Tasks = _context.TodoModels.OrderBy(q => q.Title).ToList();
+                    sortedTaskList = _context.TodoModels.OrderBy(q => q.Title).ToList();
                     break;
                 default:
-                    Tasks = _context.TodoModels.ToList();
+                    sortedTaskList = _context.TodoModels.ToList();
                     break;
-
             }
-
-           
-            return EntityDTOConversion.EntityToDTO(Tasks);
+            return EntityDTOConversion.EntityToDTO(sortedTaskList);
 
         }
 
 
-        //Filter In Tasks
+
+
+        //get filtered data list
         public IList<SHARED.ViewModals.Task> getFilteredTasks(string filter)
         {
-            IList<TodoModel> Tasks;
+            IList<TodoModel> filteredDataList;
             switch (filter)
             {
                 case "IsCompleted":
-                    Tasks = _context.TodoModels.Where(s => s.IsCompleted == 1)
+                    filteredDataList = _context.TodoModels.Where(s => s.IsCompleted == 1)
                                       .ToList();
                     break;
                 case "IsExpired":
-                    Tasks = _context.TodoModels.Where(q => q.IsExpired==1).ToList();
+                    filteredDataList = _context.TodoModels.Where(q => q.IsExpired==1).ToList();
                     break;
                 case "IsDeleted":
-                    Tasks = _context.TodoModels.Where(q => q.IsDeleted==1).ToList();
+                    filteredDataList = _context.TodoModels.Where(q => q.IsDeleted==1).ToList();
                     break;
                 case "IsOnGoing":
-                    Tasks = _context.TodoModels.Where(q => q.IsExpired==0&& q.IsDeleted == 0&& q.IsCompleted == 0).ToList();
+                    filteredDataList = _context.TodoModels.Where(q => q.IsExpired==0&& q.IsDeleted == 0&& q.IsCompleted == 0).ToList();
                     break;
                 default:
-                    Tasks = _context.TodoModels.ToList();
+                    filteredDataList = _context.TodoModels.ToList();
                     break;
 
             }
 
-
-            return EntityDTOConversion.EntityToDTO(Tasks);
+            return EntityDTOConversion.EntityToDTO(filteredDataList);
 
         }
 
 
 
 
+
+        //get pagination TaskList
         public IEnumerable<SHARED.ViewModals.Task> getPagination(int? pageNumber, int? pageSize)
         {
             IEnumerable<SHARED.ViewModals.Task> Tasks = EntityDTOConversion.EntityToDTO(_context.TodoModels.ToList());
@@ -127,12 +132,16 @@ namespace DAL.Repositries
             return Tasks.Skip((currentPageNumber - 1) * currentPageSize).Take(currentPageSize);
         }
 
+
+
+
+
+        //get Search Result
         public IEnumerable<SHARED.ViewModals.Task> getSearchResult(string searchString)
         {
-            
-                IEnumerable<SHARED.ViewModals.Task> Tasks = EntityDTOConversion.EntityToDTO(_context.TodoModels.Where(q=>q.Title.Contains(searchString)).ToList());
+                IEnumerable<SHARED.ViewModals.Task> searchList = EntityDTOConversion.EntityToDTO(_context.TodoModels.Where(q=>q.Title.Contains(searchString)).ToList());
 
-            return Tasks;
+            return searchList;
         }
 
 

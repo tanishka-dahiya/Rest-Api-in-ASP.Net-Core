@@ -17,46 +17,49 @@ namespace RestAPI.Controllers
     [ApiController]
     public class TodoModelsController : ControllerBase
     {
-        private readonly ITaskBLL taskBLL;
 
+        private readonly ITaskBLL taskBLL;
+       
         public TodoModelsController(ITaskBLL taskBLL)
         {
             this.taskBLL = taskBLL;
-        }
+        } 
 
         // GET: api/TodoModels
+        // [ResponseCache(Duration =60,Location =ResponseCacheLocation.Any)]
         [HttpGet]
-       // [ResponseCache(Duration =60,Location =ResponseCacheLocation.Any)]
         public IActionResult GetTodoModels()
         {
 
-            var TasksList = taskBLL.getTasks();
-            IList<Task> Result = ModelToDto.DTOToModel(TasksList);
+            var tasksList = taskBLL.getTasks();
+            IList<Task> Result = ModelToDto.DTOToModel(tasksList);
 
             return Ok( Result);
         }
 
-        //Sorting in Ascending And Descending Order api/TodoModels/{sort}
 
-        [HttpGet("{sort}")]
+
+
+        //Sorting in Ascending And Descending Order api/TodoModels/{sort}
+         [HttpGet("{sort}")]
         public IActionResult Sort(string sort)
         {
-            
-
-            var SortedList = taskBLL.getSortedTasks(sort);
-            IList<Task> Result = ModelToDto.DTOToModel(SortedList);
+            var sortedList = taskBLL.getSortedTasks(sort);
+            IList<Task> Result = ModelToDto.DTOToModel(sortedList);
 
             return Ok(Result);
         }
-        //Get Deleted Tasks
+
+
+
+
+        //Get filtered Tasks
 
         [HttpGet("[action]/{filter}")]
         public IActionResult GetFiltered(string filter)
         {
-
-
-            var FilteredLIstList = taskBLL.getFilteredTasks(filter);
-            IList<Task> Result = ModelToDto.DTOToModel(FilteredLIstList);
+            var filteredList = taskBLL.getFilteredTasks(filter);
+            IList<Task> Result = ModelToDto.DTOToModel(filteredList);
 
             return Ok(Result);
         }
@@ -67,30 +70,48 @@ namespace RestAPI.Controllers
 
         //// PUT: api/TodoModels/5
         [HttpPut("{id}")]
-        public IActionResult PutTodoModel(int id, Task todoModel)
+        public IActionResult PutTodoModel(int id, taskViewModel todoModel)
         {
-            SHARED.ViewModals.Task postdata = ModelToDto.ModelToDTO(todoModel);
-            SHARED.ViewModals.Task TasksItem = taskBLL.EditTasks(id,postdata);
+            Task editedTask = new Task()
+            {   TaskId=todoModel.TaskId,
+                Title = todoModel.Title,
+                TimeLeft = TimeSpan.Parse(todoModel.TimeLeft),
+                IsCompleted= todoModel.IsCompleted,
+                IsDeleted= todoModel.IsDeleted,
+                IsExpired= todoModel.IsExpired
 
-            return Created("",TasksItem);
+            };
+            SHARED.ViewModals.Task editdata = ModelToDto.ModelToDTO(editedTask);
+            SHARED.ViewModals.Task tasksItem = taskBLL.EditTasks(id, editdata);
+
+            return Created("", tasksItem);
         }
+
+
 
         //// POST: api/TodoModels
         [HttpPost]
-        public IActionResult PostTodoModels(Task taskItem)
+        public IActionResult PostTodoModels(taskViewModel taskItem)
         {
-            SHARED.ViewModals.Task postdata1 = ModelToDto.ModelToDTO(taskItem);
-            SHARED.ViewModals.Task TasksItemResult = taskBLL.PostTasks(postdata1);
+            Task postedTask = new Task()
+            {
+                Title = taskItem.Title,
+                TimeLeft = TimeSpan.Parse(taskItem.TimeLeft)
 
-            return Created("" ,TasksItemResult);
+        };
+            SHARED.ViewModals.Task postData = ModelToDto.ModelToDTO(postedTask);
+            SHARED.ViewModals.Task result = taskBLL.PostTasks(postData);
+
+            return Created("" , result);
 
         }
+
+
+
         //Get Pagination from Task Table
         [HttpGet("[action]")]
         public IActionResult getPagination(int pageNumber,int pageSize)
         {
-
-
             var FilteredLIstList = taskBLL.getPagination(pageNumber, pageSize);
             IEnumerable<Task> Result = ModelToDto.DTOToModel(FilteredLIstList);
 
@@ -104,8 +125,6 @@ namespace RestAPI.Controllers
         [HttpGet("[action]")]
         public IActionResult getSearchResult(string searchString)
         {
-
-
             var FilteredLIstList = taskBLL.getSearchResult(searchString);
             IEnumerable<Task> Result = ModelToDto.DTOToModel(FilteredLIstList);
 

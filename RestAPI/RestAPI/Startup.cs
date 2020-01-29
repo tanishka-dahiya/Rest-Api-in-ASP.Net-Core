@@ -65,7 +65,7 @@ namespace RestAPI
             app.UseHttpsRedirection();
             app.UseResponseCaching();
             app.UseMvc();
-            //  SeedData.Initialize(app);
+             SeedData.Initialize(app);
         }
     }
 }

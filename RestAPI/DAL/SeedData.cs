@@ -35,8 +35,10 @@ namespace DAL
 
         public static List<TodoModel> GetTasks()
         {
+          
             List<TodoModel> TodoModels = new List<TodoModel>() {
-                new TodoModel {Title="Study" ,TimeLeft="30 min" }
+                new TodoModel {Title="Study" ,TimeLeft=  TimeSpan.ParseExact("0:0:0", "c", null)
+        }
    
             };
             return TodoModels;

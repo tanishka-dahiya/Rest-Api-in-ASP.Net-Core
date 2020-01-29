@@ -13,7 +13,7 @@ namespace DAL.Entities
         [Required]
         public string Title { get; set; }
         [Required]
-        public string TimeLeft { get; set; } = "None";
+        public TimeSpan TimeLeft { get; set; }
         public int IsCompleted { get; set; } = 0;
         public int IsDeleted { get; set; } = 0;
         public int IsExpired { get; set; } = 0;

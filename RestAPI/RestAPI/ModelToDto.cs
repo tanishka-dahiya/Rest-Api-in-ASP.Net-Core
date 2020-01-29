@@ -7,9 +7,13 @@ using SHARED;
 
 
 namespace RestAPI
-{
+{   /// <summary>
+/// Shared View and view modal Conversions
+/// </summary>
     public class ModelToDto
-    {
+    {    
+
+        //map View modal into shared modal
         private static MapperConfiguration config9 = new MapperConfiguration(c =>
         {
             c.CreateMap<Task, SHARED.ViewModals.Task>();
@@ -24,7 +28,7 @@ namespace RestAPI
 
 
 
-
+        //map <IList>shared modal to <IList> View modal
         private static MapperConfiguration config8 = new MapperConfiguration(c =>
         {
             c.CreateMap<SHARED.ViewModals.Task, Task>();
@@ -38,6 +42,7 @@ namespace RestAPI
 
 
 
+        //map <IEnumerable>shared modal to <IEnumerable> View modal
         private static MapperConfiguration config10 = new MapperConfiguration(c =>
         {
             c.CreateMap<SHARED.ViewModals.Task, Task>();

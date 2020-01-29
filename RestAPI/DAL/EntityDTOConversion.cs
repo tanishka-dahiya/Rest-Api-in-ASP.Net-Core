@@ -12,6 +12,8 @@ namespace DAL
 {
    public  class EntityDTOConversion
     {
+
+
         private static MapperConfiguration config2 = new MapperConfiguration(c =>
         {
             c.CreateMap<TodoModel, SHARED.ViewModals.Task>();
