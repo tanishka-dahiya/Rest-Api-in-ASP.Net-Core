@@ -15,6 +15,7 @@ namespace RestAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    //[Microsoft.AspNetCore.Authorization.Authorize]
     public class TodoModelsController : ControllerBase
     {
 

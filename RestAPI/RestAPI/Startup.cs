@@ -8,6 +8,7 @@ using DAL;
 using DAL.Entities;
 using DAL.Interfaces;
 using DAL.Repositries;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -44,6 +45,16 @@ namespace RestAPI
             //for sending data in XML Accept--->application/xml in headers
             services.AddMvc().AddXmlSerializerFormatters();
 
+            //added authentication
+            services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(options =>
+            {
+                options.Authority = "https://dev-y18h0bdz.auth0.com/";
+                options.Audience = "https://localhost:5001/";
+            });
 
             //for Response Caching
             services.AddResponseCaching();
@@ -64,8 +75,9 @@ namespace RestAPI
 
             app.UseHttpsRedirection();
             app.UseResponseCaching();
+            app.UseAuthentication();
             app.UseMvc();
-             SeedData.Initialize(app);
+            SeedData.Initialize(app);
         }
     }
 }

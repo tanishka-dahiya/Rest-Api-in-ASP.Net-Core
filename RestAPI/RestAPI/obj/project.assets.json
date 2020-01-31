@@ -4767,6 +4767,7 @@
         "dependencies": {
           "AutoMapper": "8.0.0",
           "DAL": "1.0.0",
+          "Microsoft.AspNetCore.Authentication.JwtBearer": "2.2.0",
           "Microsoft.AspNetCore.Mvc.Formatters.Xml": "2.2.0",
           "Microsoft.AspNetCore.ResponseCaching": "2.2.0",
           "Microsoft.EntityFrameworkCore.SqlServer.Design": "1.1.6",
@@ -4785,6 +4786,7 @@
         "framework": ".NETCoreApp,Version=v2.2",
         "dependencies": {
           "AutoMapper": "8.0.0",
+          "Microsoft.AspNetCore.Authentication.JwtBearer": "2.2.0",
           "Microsoft.AspNetCore.Mvc.Formatters.Xml": "2.2.0",
           "Microsoft.AspNetCore.ResponseCaching": "2.2.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "2.2.2",
@@ -4804,6 +4806,7 @@
         "framework": ".NETCoreApp,Version=v2.2",
         "dependencies": {
           "AutoMapper": "8.0.0",
+          "Microsoft.AspNetCore.Authentication.JwtBearer": "2.2.0",
           "Microsoft.AspNetCore.Mvc.Formatters.Xml": "2.2.0",
           "Microsoft.AspNetCore.ResponseCaching": "2.2.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "2.2.2",
@@ -13099,6 +13102,7 @@
       "BLL >= 1.0.0",
       "DAL >= 1.0.0",
       "Microsoft.AspNetCore.App >= 2.2.0",
+      "Microsoft.AspNetCore.Authentication.JwtBearer >= 2.2.0",
       "Microsoft.AspNetCore.Mvc.Formatters.Xml >= 2.2.0",
       "Microsoft.AspNetCore.Razor.Design >= 2.2.0",
       "Microsoft.AspNetCore.ResponseCaching >= 2.2.0",
@@ -13169,6 +13173,10 @@
             "target": "Package",
             "version": "[2.2.0, )",
             "autoReferenced": true
+          },
+          "Microsoft.AspNetCore.Authentication.JwtBearer": {
+            "target": "Package",
+            "version": "[2.2.0, )"
           },
           "Microsoft.AspNetCore.Mvc.Formatters.Xml": {
             "target": "Package",
